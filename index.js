@@ -28,8 +28,7 @@ function isExpired(month, year) {
 
 app.post('/check', async (req, res) => {
   const cardsRaw = req.body.cards || '';
-  const cards = cardsRaw.split('
-').map(c => c.trim()).filter(c => c);
+  const cards = cardsRaw.split('\n').map(c => c.trim()).filter(c => c); // ✅ DÜZELTİLDİ
 
   const results = [];
   let liveAssigned = false;
@@ -65,3 +64,7 @@ app.post('/check', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server çalışıyor http://localhost:${port}`);
 });
+
+
+
+   
